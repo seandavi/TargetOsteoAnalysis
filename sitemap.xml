@@ -4,7 +4,19 @@
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/index.html</loc>
   </url>
   <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/cosmic_census.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/extract_polyphen.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/extract_sift.html</loc>
+  </url>
+  <url>
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/sleepingbeauty.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/target_dna_qc.html</loc>
   </url>
   <url>
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/target_gistic_se.html</loc>
