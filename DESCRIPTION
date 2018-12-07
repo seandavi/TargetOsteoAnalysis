@@ -28,4 +28,4 @@ Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
 BugReports: https://github.com/seandavi/TargetOsteoAnalysis/issues/new/
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
