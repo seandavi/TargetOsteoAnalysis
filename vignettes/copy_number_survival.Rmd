@@ -1,0 +1,68 @@
+---
+title: "TARGET Osteosarcoma Copy Number Survival Example"
+author: "Sean Davis"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TARGET Osteosarcoma Copy Number Survival Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r results='hide', echo=FALSE}
+library(knitr)
+opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE)
+```
+
+# Installation
+
+```{r eval=FALSE}
+source("https://bioconductor.org/biocLite.R")
+biocLite('seandavi/TargetOsteoAnalysis')
+```
+
+```{r}
+library(TargetOsteoAnalysis)
+```
+
+# Load copy number data
+
+The copy number data can be easily loaded, including the 
+clinical information, with a single command.
+
+```{r}
+cn_se = target_gistic_se()
+cn_se
+```
+
+# Survival analysis
+
+Either overall survival or relapse-free survival can be easily 
+tested for any gene, as the GISTIC data are gene-based.
+
+The following code simply create the `Surv` objects that encode
+the survival clinical data.
+
+```{r}
+library(survival)
+library(SummarizedExperiment)
+os_obj = Surv(time = colData(cn_se)$`Time to First Event in Days`, 
+              event = colData(cn_se)$`Vital Status`=='Dead')
+rfs_obj = Surv(time = colData(cn_se)$`Time to First Event in Days`, 
+               event = !is.na(colData(cn_se)$`Time to first relapse in days`))
+```
+
+The next code block uses Cox Proportional Hazards to test the 
+effect of the copy number of the _MYC_ gene on survival, controlling
+for metastasis status at diagnosis.
+
+```{r}
+library(survival)
+metastatic = !is.na(colData(cn_se)$`Metastasis site`)
+cn = assay(cn_se, 'cn')[rowData(cn_se)$`Gene Symbol`=='MYC',]
+res = coxph(os_obj ~ cn*metastatic)
+res
+```
+
+As noted above, the copy number (`cn`) term is not statistically 
+significant, but the metastatic status at diagnosis is highly significant.

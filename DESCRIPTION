@@ -1,0 +1,31 @@
+Package: TargetOsteoAnalysis
+Type: Package
+Title: Access Open-access TARGET Osteosarcoma Data
+Version: 0.1.1
+Date: 2018-09-24
+Authors@R: person("Sean", "Davis", email = "seandavi@gmail.com",
+                  role = c("aut", "cre"))
+Description: This package has functionality to 
+    create Bioconductor objects for methylation,
+    huex array expression, copy number (snp6 gistic results),
+    and miRNA data. Clinical data are automatically attached 
+    and included. QC metrics for sequencing as well as sample
+    purity and ploidy details are also available.
+License: MIT
+Depends: 
+    BiocFileCache,
+    SummarizedExperiment
+Imports:
+    S4Vectors,
+    dplyr,
+    readr,
+    readxl,
+    stringr,
+    survival,
+    shiny
+Suggests: knitr
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+BugReports: https://github.com/seandavi/TargetOsteoAnalysis/issues/new/
+RoxygenNote: 6.1.0

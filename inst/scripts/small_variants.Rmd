@@ -1,0 +1,62 @@
+---
+title: "TARGET Osteosarcoma small variant analysis"
+author: "Sean Davis"
+date: "9/24/2018"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r init, include=FALSE}
+library(knitr)
+opts_chunk$set(echo=FALSE, message=FALSE, warning = FALSE)
+```
+
+```{r parseMAF}
+library(magrittr)
+library(dplyr)
+library(DT)
+library(readr)
+library(TargetOsteoAnalysis)
+parse_maf = function(fname) {
+  tmp = read_tsv(fname)
+  tmp = tmp %>% select(-PUBMED) %>%
+    bind_cols(extract_sift(tmp$SIFT)) %>% 
+    bind_cols(extract_polyphen(tmp$PolyPhen))
+  tmp
+}
+```
+
+```{r etl}
+fnames = list.files('~/Downloads/target_variant_calling/', pattern='*maftools.maf', recursive=TRUE, full.names = TRUE)
+names(fnames) = c("discovery", "valid_exome", "valid_lcc", "valid_roche")
+vars = bind_rows(lapply(fnames, parse_maf), .id="dataset")
+datatable(vars)
+write_csv(vars,path = '~/Downloads/TARGET_OS_small_variants.csv')
+```
+
+Look for genes in Discovery **and** Validation
+
+```{r message = FALSE}
+val_vars = vars %>% 
+  filter(grepl("valid", dataset)) %>%
+  select(Tumor_Sample_Barcode, Hugo_Symbol) %>%
+  unique() %>%
+  select(-Tumor_Sample_Barcode) %>%
+  group_by(Hugo_Symbol) %>%
+  summarize(validation = n())
+dis_vars = vars %>% 
+  filter(grepl("discovery", dataset)) %>%
+  select(Hugo_Symbol) %>% 
+  group_by(Hugo_Symbol) %>%
+  summarize(discovery = n()) %>% 
+  full_join(val_vars, by = "Hugo_Symbol") %>%
+  mutate(total = discovery + validation) %>%
+  arrange(desc(total)) %>%
+  mutate(in_cosmic = Hugo_Symbol %in% cosmic_census()[[1]]) %>%
+  mutate(link = ifelse(in_cosmic, 
+                       sprintf('<a href="https://cancer.sanger.ac.uk/cosmic/gene/analysis?ln=%s">COSMIC</a>', 
+                                Hugo_Symbol), "")) 
+datatable(dis_vars, escape=FALSE)
+```
+

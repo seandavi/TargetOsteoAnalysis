@@ -1,0 +1,11 @@
+title: Target Osteosarcoma Data
+url: https://seandavi.github.io/TargetOsteoAnalysis
+template:
+  params:
+    bootswatch: united
+    ganalytics: UA-93043521-1
+navbar:
+  right:
+    - icon: fa-github
+      href: https://github.com/seandavi/TargetOsteoAnalysis/
+
