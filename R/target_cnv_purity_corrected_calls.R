@@ -31,6 +31,20 @@
 #' hist(x$baf)
 #' hist(x$log2)
 #'
+#' # Make a plot of log2 vs BAF for TP53 gene
+#' \dontrun{
+#' library(GenomicRanges)
+#' library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+#' glocs = genes(TxDb.Hsapiens.UCSC.hg19.knownGene)
+#' library(org.Hs.eg.db)
+#' library(AnnotationDbi)
+#' glocs$symbol = unlist(AnnotationDbi::select(org.Hs.eg.db,
+#'     columns = "SYMBOL", keytype = "ENTREZID", keys = glocs$gene_id)$SYMBOL)
+#' glocs = glocs[!is.na(glocs$symbol)]
+#' tp53_regions = subsetByOverlaps(x, glocs[glocs$symbol=='TP53'])
+#' plot(tp53_regions$log2, tp53_regions$baf)
+#' }
+#'
 #' @export
 target_cnv_calls = function() {
   fname = system.file('extdata/summary.pureCN.cns.calls.tsv.gz', package='TargetOsteoAnalysis')
@@ -41,3 +55,5 @@ target_cnv_calls = function() {
   mcols(gr) = dat[,-c(2,3,4)]
   gr
 }
+
+
