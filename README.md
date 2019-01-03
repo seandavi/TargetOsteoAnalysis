@@ -37,4 +37,14 @@ osteosarcoma website.
 - Methylation (450k Illumina Arrays)
 - Gene Expression (Affymetrix HuEx arrays)
 - miRNA Expression (TaqMan multiplex assay)
-- Copy Number (Affymetrix SNP6 arrays, GISTIC Summary)
+- Purity and ploidy estimates from HTS data
+- Copy Number 
+  - Affymetrix SNP6 arrays
+  - GISTIC summary
+  - Purity-corrected copy number
+- DNA quality control metrics
+
+Extra data included include:
+
+- Sleeping beauty osteosarcoma screening data
+- COSMIC consensus gene list
