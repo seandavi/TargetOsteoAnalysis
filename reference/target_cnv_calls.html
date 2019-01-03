@@ -76,7 +76,7 @@ on December 13, 2018." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Target Osteosarcoma Data</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -159,19 +159,19 @@ on December 13, 2018.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>=</span> <span class='fu'>target_cnv_calls</span>()</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  dataName = col_character(),</span>
-#&gt; <span class='message'>  chromosome = col_character(),</span>
-#&gt; <span class='message'>  start = col_double(),</span>
-#&gt; <span class='message'>  end = col_double(),</span>
-#&gt; <span class='message'>  gene = col_character(),</span>
-#&gt; <span class='message'>  log2 = col_double(),</span>
-#&gt; <span class='message'>  baf = col_double(),</span>
-#&gt; <span class='message'>  cn = col_double(),</span>
-#&gt; <span class='message'>  cn1 = col_double(),</span>
-#&gt; <span class='message'>  cn2 = col_double(),</span>
-#&gt; <span class='message'>  depth = col_double(),</span>
-#&gt; <span class='message'>  probes = col_double(),</span>
-#&gt; <span class='message'>  weight = col_double()</span>
+#&gt; <span class='message'>  dataName = <span style='color: #BB0000;'>col_character()</span><span>,</span>
+#&gt; <span class='message'>  chromosome = </span><span style='color: #BB0000;'>col_character()</span><span>,</span>
+#&gt; <span class='message'>  start = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  end = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  gene = </span><span style='color: #BB0000;'>col_character()</span><span>,</span>
+#&gt; <span class='message'>  log2 = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  baf = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  cn = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  cn1 = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  cn2 = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  depth = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  probes = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  weight = </span><span style='color: #00BB00;'>col_double()</span><span></span>
 #&gt; <span class='message'>)</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; GRanges object with 6 ranges and 10 metadata columns:
 #&gt;       seqnames            ranges strand |   sampleName
 #&gt;          &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt;
@@ -209,7 +209,7 @@ on December 13, 2018.</p>
 #&gt;   seqinfo: 24 sequences from an unspecified genome; no seqlengths</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='co'># number of regions per sample</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/vector'>as.vector</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/table'>table</a></span>(<span class='no'>x</span>$<span class='no'>sampleName</span>)))</div><div class='img'><img src='target_cnv_calls-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='no'>x</span>$<span class='no'>baf</span>)</div><div class='img'><img src='target_cnv_calls-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='no'>x</span>$<span class='no'>log2</span>)</div><div class='img'><img src='target_cnv_calls-3.png' alt='' width='700' height='433' /></div><div class='input'>
 # Make a plot of log2 vs BAF for TP53 gene
-</div><span class='co'># NOT RUN {</span>
+</div></span><span class='co'># NOT RUN {</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>GenomicRanges</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>TxDb.Hsapiens.UCSC.hg19.knownGene</span>)
 <span class='no'>glocs</span> <span class='kw'>=</span> <span class='fu'>genes</span>(<span class='no'>TxDb.Hsapiens.UCSC.hg19.knownGene</span>)
