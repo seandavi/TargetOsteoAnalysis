@@ -20,7 +20,11 @@
 #'   summarise(medploidy = median(Ploidy, na.rm=TRUE),
 #'             medpurity = median(Purity, na.rm=TRUE),
 #'             lowpurity = quantile(Purity, 0.1, na.rm=TRUE))
-#'
+#' library(ggplot2)
+#' ggplot(pure, aes(x=Purity))
+#'   + geom_density(aes(group=dataset, color=dataset))
+#'   + ggtitle('Tumor Purity Estimates')
+#' 
 #' @export
 target_purity <- function() {
   d_fname = file.path(system.file('extdata', package='TargetOsteoAnalysis'), "OS_dis_pureCN_all.txt.gz")
@@ -32,6 +36,8 @@ target_purity <- function() {
   v_fname = file.path(system.file('extdata', package='TargetOsteoAnalysis'), "OS_Val_Roche_Purecn.txt.gz")
   val = suppressMessages(read_tsv(v_fname, na = c('?'))) %>%
     select(Source, Purity, Ploidy) %>%
-    mutate(dataset = "Validation")
-  return(bind_rows(dis, val))
+      mutate(dataset = "Validation")
+  ret = bind_rows(dis, val)
+  ret = ret[apply(ret,1,function(r) !any(is.na(r))),]
+  return(ret)
 }
