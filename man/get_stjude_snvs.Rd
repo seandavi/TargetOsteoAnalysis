@@ -21,5 +21,6 @@ head(sort(table(snvs$gene), decreasing=TRUE),20)
 
 }
 \references{
-Chen, Xiang, Armita Bahrami, Alberto Pappo, John Easton, James Dalton, Erin Hedlund, David Ellison, et al. 2014. “Recurrent Somatic Structural Variations Contribute to Tumorigenesis in Pediatric Osteosarcoma.” Cell Reports, April 10, 2014. https://doi.org/10.1016/j.celrep.2014.03.003.
+Chen, Xiang, Armita Bahrami, Alberto Pappo, John Easton, James Dalton, Erin Hedlund, David Ellison, et al. 2014. “Recurrent Somatic Structural Variations Contribute to Tumorigenesis in Pediatric Osteosarcoma.” Cell Reports, April 10, 2014. \url{https://doi.org/10.1016/j.celrep.2014.03.003}. Specifically,
+the data are derived from \url{https://www.cell.com/cms/10.1016/j.celrep.2014.03.003/attachment/281e4b0f-814f-45a0-ae9c-c6fdb812cb8b/mmc4.xlsx}
 }
