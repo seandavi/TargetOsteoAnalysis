@@ -74,7 +74,7 @@ validation sets." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Target Osteosarcoma Data</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.6</span>
       </span>
     </div>
 
@@ -143,15 +143,15 @@ validation sets.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>pure</span> <span class='kw'>=</span> <span class='fu'>target_purity</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X23' [23], 'X25' [25], 'X26' [26], 'X27' [27], 'X28' [28]</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Duplicated column names deduplicated: 'SampleName' =&gt; 'SampleName_1' [21], 'SampleName' =&gt; 'SampleName_2' [22], 'Sample_Name_Roche' =&gt; 'Sample_Name_Roche_1' [24]</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>pure</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 4</span><span>
+    <pre class="examples"><div class='input'><span class='no'>pure</span> <span class='kw'>=</span> <span class='fu'>target_purity</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X23' [23], 'X25' [25], 'X26' [26], 'X27' [27], 'X28' [28]</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Duplicated column names deduplicated: 'SampleName' =&gt; 'SampleName_1' [21], 'SampleName' =&gt; 'SampleName_2' [22], 'Sample_Name_Roche' =&gt; 'Sample_Name_Roche_1' [24]</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>pure</span>)</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 4</span><span>
 #&gt;   Source Purity Ploidy dataset  
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> 0A4HLD   0.65   2.80 Discovery
-#&gt; </span><span style='color: #555555;'>2</span><span> 0A4HMC   0.33   2.66 Discovery
-#&gt; </span><span style='color: #555555;'>3</span><span> 0A4HX8   0.87   5.26 Discovery
-#&gt; </span><span style='color: #555555;'>4</span><span> 0A4I6O   0.53   1.59 Discovery
-#&gt; </span><span style='color: #555555;'>5</span><span> 0A4HXS   0.39   2.14 Discovery
-#&gt; </span><span style='color: #555555;'>6</span><span> 0A4HY5   0.66   2.51 Discovery</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>magrittr</span>)
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> 0A4HLD   0.65   2.80 Discovery
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> 0A4HMC   0.33   2.66 Discovery
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> 0A4HX8   0.87   5.26 Discovery
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> 0A4I6O   0.53   1.59 Discovery
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span> 0A4HXS   0.39   2.14 Discovery
+#&gt; </span><span style='color: #BCBCBC;'>6</span><span> 0A4HY5   0.66   2.51 Discovery</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>magrittr</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:matrixStats’:</span>
 #&gt; <span class='message'></span>
@@ -174,15 +174,18 @@ validation sets.</p>
 #&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'><span class='no'>pure</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='http://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>dataset</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='http://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span>(<span class='kw'>medploidy</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/median'>median</a></span>(<span class='no'>Ploidy</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>),
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>dataset</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span>(<span class='kw'>medploidy</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/median'>median</a></span>(<span class='no'>Ploidy</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>),
             <span class='kw'>medpurity</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/median'>median</a></span>(<span class='no'>Purity</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>),
-            <span class='kw'>lowpurity</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/quantile'>quantile</a></span>(<span class='no'>Purity</span>, <span class='fl'>0.1</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 4</span><span>
+            <span class='kw'>lowpurity</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/quantile'>quantile</a></span>(<span class='no'>Purity</span>, <span class='fl'>0.1</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 2 x 4</span><span>
 #&gt;   dataset    medploidy medpurity lowpurity
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Discovery       3.10      0.6      0.359
-#&gt; </span><span style='color: #555555;'>2</span><span> Validation      2.92      0.55     0.252</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)
-<span class='no'>p</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>pure</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>Purity</span>)) +
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> Discovery       3.10      0.6      0.359
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> Validation      2.92      0.55     0.252</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)</div><div class='output co'>#&gt; <span class='message'>Registered S3 methods overwritten by 'ggplot2':</span>
+#&gt; <span class='message'>  method         from </span>
+#&gt; <span class='message'>  [.quosures     rlang</span>
+#&gt; <span class='message'>  c.quosures     rlang</span>
+#&gt; <span class='message'>  print.quosures rlang</span></div><div class='input'><span class='no'>p</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>pure</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>Purity</span>)) +
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>geom_density</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>group</span><span class='kw'>=</span><span class='no'>dataset</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>dataset</span>)) +
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Tumor Purity Estimates'</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>p</span>)</div><div class='img'><img src='target_purity-1.png' alt='' width='700' height='433' /></div><div class='input'>
@@ -206,7 +209,7 @@ validation sets.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
       </footer>
    </div>

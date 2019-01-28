@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>convert TARGET USI to samplename — target_usi_to_samplename • Target Osteosarcoma Data</title>
+<title>load Janeway PNAS SNVs — get_janeway_snps • Target Osteosarcoma Data</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,9 @@
 
 
 
-<meta property="og:title" content="convert TARGET USI to samplename — target_usi_to_samplename" />
+<meta property="og:title" content="load Janeway PNAS SNVs — get_janeway_snps" />
 
-<meta property="og:description" content="Convert from 'TARGET-40-PALPAX' to
-'PALPAX'" />
+<meta property="og:description" content="load Janeway PNAS SNVs" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -74,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Target Osteosarcoma Data</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -122,41 +121,50 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>convert TARGET USI to samplename</h1>
+    <h1>load Janeway PNAS SNVs</h1>
     
-    <div class="hidden name"><code>target_usi_to_samplename.Rd</code></div>
+    <div class="hidden name"><code>get_janeway_snps.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Convert from 'TARGET-40-PALPAX' to
-'PALPAX'</p>
+    <p>load Janeway PNAS SNVs</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>target_usi_to_samplename</span>(<span class='no'>usi</span>, <span class='kw'>long</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>get_janeway_snps</span>()</pre>
+        
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a tibble with variants and oncotator results</p>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>usi</th>
-      <td><p>character() A target USI of the form "TARGET-40-ABCDEF" or "TARGET-40-ABCDEF-01A-10A"</p></td>
-    </tr>
-    <tr>
-      <th>long</th>
-      <td><p>logical() Specify TRUE for USIs of the form "TARGET-40-ABCDEF-01A-10A" and
-FALSE for "TARGET-40-ABCDEF"</p></td>
-    </tr>
-    </table>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Data from <a href='https://www.pnas.org/highwire/filestream/618044/field_highwire_adjunct_files/8/pnas.1419260111.sd09.xls'>https://www.pnas.org/highwire/filestream/618044/field_highwire_adjunct_files/8/pnas.1419260111.sd09.xls</a>.
+  See Proceedings of the National Academy of Sciences Dec 2014, 111 (51) E5564-E5573; DOI: 10.1073/pnas.1419260111.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>snps = get_janeway_snps()
+head(snps)
+colnames(snps)
+head(sort(table(snps$Hugo_Symbol), decreasing=TRUE)),25)
+
+</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:4:53: unexpected ','</span>
+#&gt; <span class='error'>3: colnames(snps)</span>
+#&gt; <span class='error'>4: head(sort(table(snps$Hugo_Symbol), decreasing=TRUE)),</span>
+#&gt; <span class='error'>                                                       ^</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#references">References</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
