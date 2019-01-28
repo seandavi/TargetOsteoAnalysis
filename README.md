@@ -48,3 +48,4 @@ Extra data included include:
 
 - Sleeping beauty osteosarcoma screening data
 - COSMIC consensus gene list
+- Alterations defined by https://www.pnas.org/content/111/51/E5564. See `get_janeway_alterations()`.
