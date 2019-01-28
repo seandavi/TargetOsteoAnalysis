@@ -3,7 +3,7 @@
 export(cosmic_census)
 export(extract_polyphen)
 export(extract_sift)
-export(get_janeway_snps)
+export(get_janeway_alterations)
 export(target_cnv_calls)
 export(target_dna_qc)
 export(target_gistic_se)
