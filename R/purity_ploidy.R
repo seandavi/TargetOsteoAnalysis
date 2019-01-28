@@ -21,9 +21,9 @@
 #'             medpurity = median(Purity, na.rm=TRUE),
 #'             lowpurity = quantile(Purity, 0.1, na.rm=TRUE))
 #' library(ggplot2)
-#' p = ggplot(pure, aes(x=Purity))
-#'   + geom_density(aes(group=dataset, color=dataset))
-#'   + ggtitle('Tumor Purity Estimates')
+#' p = ggplot(pure, aes(x=Purity)) +
+#'   geom_density(aes(group=dataset, color=dataset)) +
+#'   ggtitle('Tumor Purity Estimates')
 #' print(p)
 #' 
 #' @export
