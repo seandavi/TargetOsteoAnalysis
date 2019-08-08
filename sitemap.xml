@@ -19,6 +19,9 @@
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/get_stjude_snvs.html</loc>
   </url>
   <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/lcc_genes.html</loc>
+  </url>
+  <url>
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/sleepingbeauty.html</loc>
   </url>
   <url>
@@ -52,6 +55,9 @@
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/target_usi_to_samplename.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/TargetOsteoAnalysis/articles/copy_number_survival.html</loc>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/variant_calls.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/articles/lcc_variants.html</loc>
   </url>
 </urlset>

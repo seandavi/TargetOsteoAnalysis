@@ -2,7 +2,7 @@ pandoc: 2.1.3
 pkgdown: 1.3.0
 pkgdown_sha: ~
 articles:
-  copy_number_survival: copy_number_survival.html
+  lcc_variants: lcc_variants.html
 urls:
   reference: https://seandavi.github.io/TargetOsteoAnalysis/reference
   article: https://seandavi.github.io/TargetOsteoAnalysis/articles
