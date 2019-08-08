@@ -1,8 +1,8 @@
 Package: TargetOsteoAnalysis
 Type: Package
 Title: Access Open-access TARGET Osteosarcoma Data
-Version: 0.1.7
-Date: 2019-01-28
+Version: 0.1.8
+Date: `R Sys.Date`
 Authors@R: person("Sean", "Davis", email = "seandavi@gmail.com",
                   role = c("aut", "cre"))
 Description: This package has functionality to 
