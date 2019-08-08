@@ -9,3 +9,7 @@ variant_calls()
 \description{
 load stacked, filtered mutect calls
 }
+\examples{
+head(variant_call)
+
+}

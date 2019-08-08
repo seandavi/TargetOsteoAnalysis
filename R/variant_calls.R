@@ -2,6 +2,9 @@
 #'
 #' @importFrom readr read_tsv
 #'
+#' @examples
+#' head(variant_call)
+#'
 #' @export
 variant_calls = function() {
   .variant_call_file = system.file(package='TargetOsteoAnalysis',
