@@ -1,0 +1,52 @@
+---
+title: "Analysis of variants for LCC genes"
+author: "Sean Davis"
+date: "8/8/2019"
+output: html_document
+---
+
+# Overview
+
+Using the file available from `/data/CCRBioinfo/projects/TargetOsteoManuscriptData/mutect_summary/TargetOsteoDNA.mutect.GATK_filter.tab`:
+
+I did the followign:
+
+- select unique SampleName, Chromosome, Start_Position, End_Position, Hugo_Symbol
+
+Summary tables are below.
+
+# Results
+
+Load variants and genes.
+
+```{r, message=FALSE, warning=FALSE}
+library(TargetOsteoAnalysis)
+library(dplyr)
+variants = variant_calls() # mutect calls as a tibble
+```
+
+And find unique variants for each of the LCC genes, regardless of sequencing technique used.
+
+```{r}
+unique_vars = variants %>% 
+  dplyr::select(SampleName, Chromosome, Start_Position, End_Position, Hugo_Symbol) %>%
+  dplyr::filter(Hugo_Symbol %in% lcc_genes()) %>%
+  unique()
+```
+
+All unique variants for the LCC genes are:
+
+```{r}
+as.data.frame(unique_vars %>% dplyr::arrange(SampleName))
+```
+
+Gene counts (counting each gene only once per sample) are:
+
+```{r}
+unique_gene_samples = unique_vars %>% 
+  dplyr::select(SampleName, Hugo_Symbol) %>% 
+  unique()
+sort(table(unique_gene_samples$Hugo_Symbol))
+```
+
+
