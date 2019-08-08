@@ -114,7 +114,7 @@
 <a class="sourceLine" id="cb1-3" data-line-number="3">variants =<span class="st"> </span><span class="kw"><a href="../reference/variant_calls.html">variant_calls</a></span>() <span class="co"># mutect calls as a tibble</span></a></code></pre></div>
 <p>And find unique variants for each of the LCC genes, regardless of sequencing technique used.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">unique_vars =<span class="st"> </span>variants <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(SampleName, Chromosome, Start_Position, End_Position, Hugo_Symbol) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(SampleName, Chromosome, Start_Position, End_Position, Hugo_Symbol, Variant_Type) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(Hugo_Symbol <span class="op">%in%</span><span class="st"> </span><span class="kw"><a href="../reference/lcc_genes.html">lcc_genes</a></span>()) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique</a></span>()</a></code></pre></div>
 <p>All unique variants for the LCC genes are:</p>
@@ -125,6 +125,7 @@
 <th align="right">Start_Position</th>
 <th align="right">End_Position</th>
 <th align="left">Hugo_Symbol</th>
+<th align="left">Variant_Type</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -133,6 +134,7 @@
 <td align="right">7577106</td>
 <td align="right">7577106</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">0A4HX8_Tumor</td>
@@ -140,6 +142,7 @@
 <td align="right">7578461</td>
 <td align="right">7578461</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I4E_Tumor</td>
@@ -147,6 +150,7 @@
 <td align="right">49039206</td>
 <td align="right">49039206</td>
 <td align="left">RB1</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">0A4I4E_Tumor</td>
@@ -154,6 +158,7 @@
 <td align="right">7578290</td>
 <td align="right">7578290</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I5B_Tumor</td>
@@ -161,6 +166,7 @@
 <td align="right">7578257</td>
 <td align="right">7578257</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">0A4I6O_Tumor</td>
@@ -168,6 +174,7 @@
 <td align="right">7578532</td>
 <td align="right">7578532</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I9K_Tumor</td>
@@ -175,6 +182,7 @@
 <td align="right">7577097</td>
 <td align="right">7577097</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAECZ_Tumor</td>
@@ -182,6 +190,7 @@
 <td align="right">7577142</td>
 <td align="right">7577142</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAEDB_Tumor</td>
@@ -189,6 +198,7 @@
 <td align="right">7578192</td>
 <td align="right">7578192</td>
 <td align="left">TP53</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="even">
 <td align="left">NAAEDG_Tumor</td>
@@ -196,6 +206,7 @@
 <td align="right">7577498</td>
 <td align="right">7577498</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAGJP_Tumor</td>
@@ -203,6 +214,7 @@
 <td align="right">7577094</td>
 <td align="right">7577094</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAGJP_Tumor</td>
@@ -210,6 +222,7 @@
 <td align="right">76938407</td>
 <td align="right">76938407</td>
 <td align="left">ATRX</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAGJZ_Tumor</td>
@@ -217,6 +230,7 @@
 <td align="right">76937963</td>
 <td align="right">76937963</td>
 <td align="left">ATRX</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAGKM_Tumor</td>
@@ -224,6 +238,7 @@
 <td align="right">7579373</td>
 <td align="right">7579373</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBI_Tumor</td>
@@ -231,6 +246,7 @@
 <td align="right">7577018</td>
 <td align="right">7577018</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBK_Tumor</td>
@@ -238,6 +254,7 @@
 <td align="right">7577114</td>
 <td align="right">7577114</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBU_RecurrentTumor</td>
@@ -245,6 +262,7 @@
 <td align="right">7579358</td>
 <td align="right">7579358</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBU_RecurrentTumor</td>
@@ -252,6 +270,7 @@
 <td align="right">76939918</td>
 <td align="right">76939918</td>
 <td align="left">ATRX</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBU_Tumor</td>
@@ -259,6 +278,7 @@
 <td align="right">7579358</td>
 <td align="right">7579358</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBY_RecurrentTumor</td>
@@ -266,6 +286,7 @@
 <td align="right">7578525</td>
 <td align="right">7578525</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBY_Tumor</td>
@@ -273,6 +294,7 @@
 <td align="right">7578525</td>
 <td align="right">7578525</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBZ_Tumor</td>
@@ -280,6 +302,7 @@
 <td align="right">7577097</td>
 <td align="right">7577097</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHCF_Tumor</td>
@@ -287,6 +310,7 @@
 <td align="right">7578382</td>
 <td align="right">7578382</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHCH_Tumor</td>
@@ -294,6 +318,7 @@
 <td align="right">7577539</td>
 <td align="right">7577539</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHCJ_RecurrentTumor</td>
@@ -301,6 +326,7 @@
 <td align="right">7579416</td>
 <td align="right">7579446</td>
 <td align="left">TP53</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHCJ_Tumor</td>
@@ -308,6 +334,7 @@
 <td align="right">7579416</td>
 <td align="right">7579446</td>
 <td align="left">TP53</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHCR_Tumor</td>
@@ -315,6 +342,7 @@
 <td align="right">7578545</td>
 <td align="right">7578545</td>
 <td align="left">TP53</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHDF_Tumor</td>
@@ -322,6 +350,7 @@
 <td align="right">89692911</td>
 <td align="right">89692911</td>
 <td align="left">PTEN</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHDL_Tumor</td>
@@ -329,6 +358,7 @@
 <td align="right">7577108</td>
 <td align="right">7577108</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAIBU_Tumor</td>
@@ -336,6 +366,7 @@
 <td align="right">48881488</td>
 <td align="right">48881489</td>
 <td align="left">RB1</td>
+<td align="left">INS</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAIBW_Tumor</td>
@@ -343,6 +374,7 @@
 <td align="right">89685296</td>
 <td align="right">89685296</td>
 <td align="left">PTEN</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAASJI_Tumor</td>
@@ -350,6 +382,7 @@
 <td align="right">7579310</td>
 <td align="right">7579310</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAWEX_Tumor</td>
@@ -357,6 +390,7 @@
 <td align="right">7577121</td>
 <td align="right">7577121</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">NAAWGR_Tumor</td>
@@ -364,6 +398,7 @@
 <td align="right">76940042</td>
 <td align="right">76940042</td>
 <td align="left">ATRX</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="odd">
 <td align="left">PAIXFY_Tumor</td>
@@ -371,6 +406,7 @@
 <td align="right">48921987</td>
 <td align="right">48921987</td>
 <td align="left">RB1</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="even">
 <td align="left">PAKUZU_Tumor</td>
@@ -378,6 +414,7 @@
 <td align="right">49039169</td>
 <td align="right">49039169</td>
 <td align="left">RB1</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PAKXLD_Tumor</td>
@@ -385,6 +422,7 @@
 <td align="right">7577120</td>
 <td align="right">7577120</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PAKZZK_Tumor</td>
@@ -392,6 +430,7 @@
 <td align="right">7577094</td>
 <td align="right">7577094</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMHLF_Tumor</td>
@@ -399,6 +438,7 @@
 <td align="right">7578190</td>
 <td align="right">7578190</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PAMJXS_Tumor</td>
@@ -406,6 +446,7 @@
 <td align="right">7577114</td>
 <td align="right">7577114</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMRHD_Tumor</td>
@@ -413,6 +454,7 @@
 <td align="right">49037915</td>
 <td align="right">49037917</td>
 <td align="left">RB1</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="even">
 <td align="left">PAMYYJ_Tumor</td>
@@ -420,6 +462,7 @@
 <td align="right">49027153</td>
 <td align="right">49027154</td>
 <td align="left">RB1</td>
+<td align="left">INS</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMYYJ_Tumor</td>
@@ -427,6 +470,7 @@
 <td align="right">76937383</td>
 <td align="right">76937383</td>
 <td align="left">ATRX</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="even">
 <td align="left">PANGCY_Tumor</td>
@@ -434,6 +478,7 @@
 <td align="right">30050681</td>
 <td align="right">30050682</td>
 <td align="left">NF2</td>
+<td align="left">INS</td>
 </tr>
 <tr class="odd">
 <td align="left">PANMIG_Tumor</td>
@@ -441,6 +486,7 @@
 <td align="right">49027128</td>
 <td align="right">49027128</td>
 <td align="left">RB1</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PANMIG_Tumor</td>
@@ -448,6 +494,7 @@
 <td align="right">76855051</td>
 <td align="right">76855051</td>
 <td align="left">ATRX</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PAPVYW_Tumor</td>
@@ -455,6 +502,7 @@
 <td align="right">7577120</td>
 <td align="right">7577120</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PARDAX_Tumor</td>
@@ -462,6 +510,7 @@
 <td align="right">48955550</td>
 <td align="right">48955550</td>
 <td align="left">RB1</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PARDAX_Tumor</td>
@@ -469,6 +518,7 @@
 <td align="right">7578203</td>
 <td align="right">7578203</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PASEFS_Tumor</td>
@@ -476,6 +526,7 @@
 <td align="right">7576855</td>
 <td align="right">7576855</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PASEFS_Tumor</td>
@@ -483,6 +534,7 @@
 <td align="right">76938593</td>
 <td align="right">76938594</td>
 <td align="left">ATRX</td>
+<td align="left">INS</td>
 </tr>
 <tr class="even">
 <td align="left">PASKZZ_Tumor</td>
@@ -490,6 +542,7 @@
 <td align="right">7578475</td>
 <td align="right">7578475</td>
 <td align="left">TP53</td>
+<td align="left">DEL</td>
 </tr>
 <tr class="odd">
 <td align="left">PASNZV_Tumor</td>
@@ -497,6 +550,7 @@
 <td align="right">48955538</td>
 <td align="right">48955538</td>
 <td align="left">RB1</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PASNZV_Tumor</td>
@@ -504,6 +558,7 @@
 <td align="right">7579324</td>
 <td align="right">7579325</td>
 <td align="left">TP53</td>
+<td align="left">INS</td>
 </tr>
 <tr class="odd">
 <td align="left">PASSLM_Tumor</td>
@@ -511,6 +566,7 @@
 <td align="right">48953743</td>
 <td align="right">48953743</td>
 <td align="left">RB1</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PASSLM_Tumor</td>
@@ -518,6 +574,7 @@
 <td align="right">7577498</td>
 <td align="right">7577498</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PASSLM_Tumor</td>
@@ -525,6 +582,7 @@
 <td align="right">76937879</td>
 <td align="right">76937880</td>
 <td align="left">ATRX</td>
+<td align="left">INS</td>
 </tr>
 <tr class="even">
 <td align="left">PATMXR_Tumor</td>
@@ -532,6 +590,7 @@
 <td align="right">76891541</td>
 <td align="right">76891541</td>
 <td align="left">ATRX</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PATPBS_Tumor</td>
@@ -539,6 +598,7 @@
 <td align="right">7577094</td>
 <td align="right">7577094</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PATUXZ_Tumor</td>
@@ -546,6 +606,7 @@
 <td align="right">76874323</td>
 <td align="right">76874323</td>
 <td align="left">ATRX</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PAVDSN_Tumor</td>
@@ -553,6 +614,7 @@
 <td align="right">7577545</td>
 <td align="right">7577545</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="even">
 <td align="left">PAVLIB_Tumor</td>
@@ -560,6 +622,7 @@
 <td align="right">7577142</td>
 <td align="right">7577142</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 <tr class="odd">
 <td align="left">PAVXDP_Tumor</td>
@@ -567,17 +630,504 @@
 <td align="right">7578532</td>
 <td align="right">7578532</td>
 <td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+</tbody>
+</table>
+<p>Removing recurrent tumors:</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">SampleName</th>
+<th align="left">Chromosome</th>
+<th align="right">Start_Position</th>
+<th align="right">End_Position</th>
+<th align="left">Hugo_Symbol</th>
+<th align="left">Variant_Type</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">0A4HLD_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577106</td>
+<td align="right">7577106</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">0A4HX8_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578461</td>
+<td align="right">7578461</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">0A4I4E_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">49039206</td>
+<td align="right">49039206</td>
+<td align="left">RB1</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">0A4I4E_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578290</td>
+<td align="right">7578290</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">0A4I5B_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578257</td>
+<td align="right">7578257</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">0A4I6O_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578532</td>
+<td align="right">7578532</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">0A4I9K_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577097</td>
+<td align="right">7577097</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAECZ_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577142</td>
+<td align="right">7577142</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAEDB_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578192</td>
+<td align="right">7578192</td>
+<td align="left">TP53</td>
+<td align="left">DEL</td>
+</tr>
+<tr class="even">
+<td align="left">NAAEDG_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577498</td>
+<td align="right">7577498</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAGJP_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577094</td>
+<td align="right">7577094</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAGJP_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76938407</td>
+<td align="right">76938407</td>
+<td align="left">ATRX</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAGJZ_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76937963</td>
+<td align="right">76937963</td>
+<td align="left">ATRX</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAGKM_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7579373</td>
+<td align="right">7579373</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAHBI_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577018</td>
+<td align="right">7577018</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAHBK_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577114</td>
+<td align="right">7577114</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAHBU_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7579358</td>
+<td align="right">7579358</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAHBY_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578525</td>
+<td align="right">7578525</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAHBZ_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577097</td>
+<td align="right">7577097</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAHCF_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578382</td>
+<td align="right">7578382</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAHCH_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577539</td>
+<td align="right">7577539</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAHCJ_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7579416</td>
+<td align="right">7579446</td>
+<td align="left">TP53</td>
+<td align="left">DEL</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAHCR_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578545</td>
+<td align="right">7578545</td>
+<td align="left">TP53</td>
+<td align="left">DEL</td>
+</tr>
+<tr class="even">
+<td align="left">NAAHDF_Tumor</td>
+<td align="left">chr10</td>
+<td align="right">89692911</td>
+<td align="right">89692911</td>
+<td align="left">PTEN</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAHDL_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577108</td>
+<td align="right">7577108</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAIBU_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">48881488</td>
+<td align="right">48881489</td>
+<td align="left">RB1</td>
+<td align="left">INS</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAIBW_Tumor</td>
+<td align="left">chr10</td>
+<td align="right">89685296</td>
+<td align="right">89685296</td>
+<td align="left">PTEN</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAASJI_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7579310</td>
+<td align="right">7579310</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">NAAWEX_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577121</td>
+<td align="right">7577121</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">NAAWGR_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76940042</td>
+<td align="right">76940042</td>
+<td align="left">ATRX</td>
+<td align="left">DEL</td>
+</tr>
+<tr class="odd">
+<td align="left">PAIXFY_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">48921987</td>
+<td align="right">48921987</td>
+<td align="left">RB1</td>
+<td align="left">DEL</td>
+</tr>
+<tr class="even">
+<td align="left">PAKUZU_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">49039169</td>
+<td align="right">49039169</td>
+<td align="left">RB1</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PAKXLD_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577120</td>
+<td align="right">7577120</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PAKZZK_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577094</td>
+<td align="right">7577094</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PAMHLF_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578190</td>
+<td align="right">7578190</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PAMJXS_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577114</td>
+<td align="right">7577114</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PAMRHD_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">49037915</td>
+<td align="right">49037917</td>
+<td align="left">RB1</td>
+<td align="left">DEL</td>
+</tr>
+<tr class="even">
+<td align="left">PAMYYJ_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">49027153</td>
+<td align="right">49027154</td>
+<td align="left">RB1</td>
+<td align="left">INS</td>
+</tr>
+<tr class="odd">
+<td align="left">PAMYYJ_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76937383</td>
+<td align="right">76937383</td>
+<td align="left">ATRX</td>
+<td align="left">DEL</td>
+</tr>
+<tr class="even">
+<td align="left">PANGCY_Tumor</td>
+<td align="left">chr22</td>
+<td align="right">30050681</td>
+<td align="right">30050682</td>
+<td align="left">NF2</td>
+<td align="left">INS</td>
+</tr>
+<tr class="odd">
+<td align="left">PANMIG_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">49027128</td>
+<td align="right">49027128</td>
+<td align="left">RB1</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PANMIG_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76855051</td>
+<td align="right">76855051</td>
+<td align="left">ATRX</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PAPVYW_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577120</td>
+<td align="right">7577120</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PARDAX_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">48955550</td>
+<td align="right">48955550</td>
+<td align="left">RB1</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PARDAX_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578203</td>
+<td align="right">7578203</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PASEFS_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7576855</td>
+<td align="right">7576855</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PASEFS_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76938593</td>
+<td align="right">76938594</td>
+<td align="left">ATRX</td>
+<td align="left">INS</td>
+</tr>
+<tr class="even">
+<td align="left">PASKZZ_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578475</td>
+<td align="right">7578475</td>
+<td align="left">TP53</td>
+<td align="left">DEL</td>
+</tr>
+<tr class="odd">
+<td align="left">PASNZV_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">48955538</td>
+<td align="right">48955538</td>
+<td align="left">RB1</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PASNZV_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7579324</td>
+<td align="right">7579325</td>
+<td align="left">TP53</td>
+<td align="left">INS</td>
+</tr>
+<tr class="odd">
+<td align="left">PASSLM_Tumor</td>
+<td align="left">chr13</td>
+<td align="right">48953743</td>
+<td align="right">48953743</td>
+<td align="left">RB1</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PASSLM_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577498</td>
+<td align="right">7577498</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PASSLM_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76937879</td>
+<td align="right">76937880</td>
+<td align="left">ATRX</td>
+<td align="left">INS</td>
+</tr>
+<tr class="even">
+<td align="left">PATMXR_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76891541</td>
+<td align="right">76891541</td>
+<td align="left">ATRX</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PATPBS_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577094</td>
+<td align="right">7577094</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PATUXZ_Tumor</td>
+<td align="left">chrX</td>
+<td align="right">76874323</td>
+<td align="right">76874323</td>
+<td align="left">ATRX</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PAVDSN_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577545</td>
+<td align="right">7577545</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="even">
+<td align="left">PAVLIB_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7577142</td>
+<td align="right">7577142</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
+</tr>
+<tr class="odd">
+<td align="left">PAVXDP_Tumor</td>
+<td align="left">chr17</td>
+<td align="right">7578532</td>
+<td align="right">7578532</td>
+<td align="left">TP53</td>
+<td align="left">SNP</td>
 </tr>
 </tbody>
 </table>
 <p>Gene counts (counting each gene only once per sample) are:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">unique_gene_samples =<span class="st"> </span>unique_vars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(SampleName, Hugo_Symbol) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique</a></span>()</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sort">sort</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(unique_gene_samples<span class="op">$</span>Hugo_Symbol))</a></code></pre></div>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">grepl</a></span>(<span class="st">'recurrent'</span>, SampleName, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(SampleName, Hugo_Symbol) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique</a></span>()</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sort">sort</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(unique_gene_samples<span class="op">$</span>Hugo_Symbol))</a></code></pre></div>
 <pre><code>## 
 ##  NF2 PTEN ATRX  RB1 TP53 
-##    1    2   10   10   40</code></pre>
+##    1    2    9   10   37</code></pre>
 </div>
   </div>
 
