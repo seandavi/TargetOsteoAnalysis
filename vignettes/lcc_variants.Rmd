@@ -29,9 +29,16 @@ And find unique variants for each of the LCC genes, regardless of sequencing tec
 
 ```{r}
 unique_vars = variants %>% 
-  dplyr::select(SampleName, Chromosome, Start_Position, End_Position, Hugo_Symbol, Variant_Type) %>%
-  dplyr::filter(Hugo_Symbol %in% lcc_genes()) %>%
-  unique()
+  dplyr::arrange(SampleName, Chromosome, Start_Position, 
+                 End_Position, Variant_Type, t_vaf) %>%
+  dplyr::distinct(SampleName, Chromosome, Start_Position, 
+                  End_Position, Variant_Type, .keep_all=TRUE) %>%
+  dplyr::rename(VariantAlleleFreq = t_vaf, HGVS = HGVSp_Short) %>%
+  dplyr::select(SampleName, Chromosome, Start_Position, 
+                End_Position, Hugo_Symbol, Variant_Type, 
+                VariantAlleleFreq, HGVS, Transcript_ID,
+                Consequence) %>%
+  dplyr::filter(Hugo_Symbol %in% lcc_genes())
 ```
 
 All unique variants for the LCC genes are:
@@ -56,6 +63,13 @@ unique_gene_samples = unique_vars %>%
   dplyr::select(SampleName, Hugo_Symbol) %>% 
   unique()
 sort(table(unique_gene_samples$Hugo_Symbol))
+```
+
+## Exported data
+
+```{r}
+readr::write_lines(paste('# Protein-altering somatic variants in any of the genes ', paste(lcc_genes(), collapse=", ")), '/tmp/unique_vars_LCC_mutect.csv')
+readr::write_csv(unique_vars, '/tmp/unique_vars_LCC_mutect.csv', append=TRUE, col_names = TRUE)
 ```
 
 
