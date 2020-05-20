@@ -1,7 +1,14 @@
 ---
-title: "multivariate_survival"
+title: "Multivariate survival analysis"
+subtitle: "Application to TARGET Osteosarcoma metastatic and single sample GSEA results"
+date: "`r Sys.Date()`"
+author: Sean Davis^[seandavi@gmail.com]
 output: 
-  bookdown::html_document2
+  bookdown::pdf_document2:
+    number_sections: false
+    toc: true
+abstract: |
+  The goal of this workflow is to showcase how to use Cox regression in R to analyze a combination of continuous and categorical predictors of survival. The dataset is from the TARGET osteosarcoma project. The continuous variable(s) are derived elsewhere, but are the results of applying single sample Gene Set Enrichment Analysis (GSEA) to a group of "interesting" biological genes. 
 bibliography: references.bib
 vignette: >
   %\VignetteIndexEntry{multivariate_survival}
@@ -12,8 +19,26 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  cache=TRUE
 )
+```
+## Learning goals and objectives
+
+- Know that Kaplan-Meier is a *univariate* statistical approach.
+- Know that Kaplan-Meier and associated log-rank test are applicable only to categorical variables.
+- Know that Cox regression can be applied to *univariate* or *multivariate* data with either categorical or continuous predictors.
+- Understand how to use `anova()` to determine the statistical significance of predictors.
+- Be able to apply `anova()` to determine if an additional predictor is helpful to predicting survival.
+- Be able to identify and interpret the Hazard Ratios from a Cox regression model.
+
+
+## Setup
+
+We need a few R packages to get going. If these are not installed, install them first. To install the `TargetOsteoAnalysis` package requires a little extra work:
+
+```{r eval=FALSE}
+BiocManager::install('seandavi/TargetOsteoAnalysis')
 ```
 
 ```{r setup, warning=FALSE,message=FALSE}
@@ -22,7 +47,12 @@ library(survival)
 library(survminer)
 library(tidytidbits)
 library(dplyr)
+library(ggplot2)
 ```
+
+## The dataset
+
+The following code loads data from the `TargetOsteoAnalysis` package and then manipulates it to be a bit simpler for the workflow below.
 
 ```{r getdataset}
 ssgsea_survival = read.delim(
@@ -41,34 +71,137 @@ library(DT)
 datatable(ssgsea_survival)
 ```
 
+## Introduction
+
 The Cox proportional-hazards model [@Cox1972-cj] is semi-parametric regression model commonly used for investigating the association between the survival time of patients and one or more predictor variables. Kaplan-Meier curves and logrank tests - are examples of *univariate* analysis approaches. They can be applied in the setting of one factor under investigation, but ignore the impact of any others. Additionally, Kaplan-Meier curves and logrank tests are useful only when the predictor variable is categorical (e.g.: treatment A vs treatment B; males vs females). They don’t work easily for quantitative predictors such as gene expression, weight, or age without binning the variable first to create categories
 
 Cox proportional hazards regression analysis works for both quantitative predictor variables and for categorical variables. Furthermore, the Cox regression model extends survival analysis methods to assess simultaneously the effect of several risk factors on survival time; ie., Cox regression can be *multivariate*. 
 
 ## Kaplan-Meier/LogRank test vs Cox Regression
 
-```{r fig.cap='Simple Kaplan-Meier survival plot', fig.width=8, fig.height=5, out.width='100%'}
-surv_km  = survfit(survival::Surv(time,status) ~ metastatic, data=ssgsea_survival)
-survminer::ggsurvplot(surv_km, risk.table = TRUE)
+```{r fig.cap='Simple Kaplan-Meier survival plot with metastatic status at diagnosis.', fig.width=8, fig.height=5, out.width='100%', warning=FALSE}
+surv_met_fit= survfit(
+  survival::Surv(time,status) ~ metastatic, 
+  data=ssgsea_survival)
+survminer::ggsurvplot(surv_met_fit, risk.table = TRUE)
+```
+
+To perform the actual logrank testing, we apply the `survdiff()` function. This function tests if there is a difference between two or more survival curves using the _G-rho_ family of tests [@Harrington1982-ke].
+
+```{r}
+surv_km  = survdiff(
+  survival::Surv(time,status) ~ metastatic, 
+  data=ssgsea_survival)
 surv_km
 ```
 
-```{r}
-surv_met = survival::coxph(survival::Surv(time,status) ~ metastatic, data=ssgsea_survival)
+So, the p-value for this test, also known as the *log-rank* or *Mantel-Haenszel* test, is `r 1-pchisq(surv_km$chisq,1)`.
 
+Regression approaches allow us to treat categorical and continuous variables in a common statistical framework. Here, we apply the `coxph()` method to perform Cox regression with the categorical variable, `metastatic`, as the predictor. Note that the ***exact same*** model formula is used here, but the testing procedure is different.
+
+```{r}
+surv_met = survival::coxph(
+  survival::Surv(time,status) ~ metastatic, 
+  data=ssgsea_survival)
 ```
 
-
+We can look at the Cox regression results using the `summary()` method:
 
 ```{r}
 summary(surv_met)
 ```
 
+Digging through this result can be a bit challenging. Let's start at the bottom. The three results, `Likelihood ratio test`, `Wald test`, and `Score (logrank) test` with `p=...` are _omnibus_ tests that report the results of three different testing procedures for ***the entire model***. In particular, note that the p-value for the `Score (logrank) test` is identical to the p-value of the `logrank` test from the `survdiff` results above. 
 
+The next block of rows (`exp(coef)`, `exp(-coef)`, `lower .95`, `upper .95`) report the hazard ratios. The `exp(coef)` is the *Hazard Ratio* associated with `metastaticNon-metastatic` condition. This may seem a strange way to report things, but the assumption is that the "baseline" is the `metasticMetastatic` condition; thus, the hazard ratio reported here, 0.2677, suggests that "Non-metastatic" is *protective*. The "lower" and "upper" confidence intervals (`lower .95`, `upper .95`) do not intersect a hazard ratio of 1, so we would expect the effect to be significant.
+
+Moving up to the next block of rows, we can find the p-value for the specific variable (`Pr(>|z|)`). The p-value reported here is *identical* to the p-value for the Wald Test, `r 1-pchisq(14.58,1)`.
+
+## Looking at CTA genes
+
+We can apply the same Cox regression procedure for the continuous variable, `CTA_all`, for example.
 
 ```{r}
-surv_res = survival::coxph(survival::Surv(time,status) ~ metastatic+CTA_chrX, data=ssgsea_survival)
+surv_cta_all = survival::coxph(
+  survival::Surv(time,status) ~ CTA_chrX, 
+  data=ssgsea_survival)
+summary(surv_cta_all)
 ```
+
+Again, looking at the *omnibus* tests, all are significant for the entire model. The Hazard Ratio estimate is 0.9997 which is interpreted to mean that higher ssGSEA scores for the CTA genes is protective. 
+
+Now, how can we include metastasis *and* the ssGSEA results in the same model? Programmatically, we can just include a `+` in the model formula. That looks like:
+
+```{r}
+surv_full = survival::coxph(
+  survival::Surv(time,status) ~ metastatic + CTA_all, 
+  data=ssgsea_survival)
+```
+
+Does adding `CTA_all` to the model make a significance difference? The way to address the question of whether a model that includes more covariates is "better" than one with fewer is to formally test. In particular, we need to have the model without the CTA_all results and compare it to the same model but with the CTA_all results included. 
+
+The model with only metastasis looks like:
+
+```{r}
+surv_met_only = survival::coxph(
+  survival::Surv(time,status) ~ metastatic, 
+  data=ssgsea_survival)
+```
+
+We use the `anova()` method to compare models:
+
+```{r}
+anova(surv_met_only,surv_full)
+```
+
+The results are comparing model `1` that includes only metastasis as a covariate vs model `2` that includes both metastasis *and* CTA_all. The equivalence of the two models is easily "rejected" since the p-value (`P(>|Chi|)`) is small.
+
+R has a convenient means to examine a single model using `anova()`. If we have the full model only, for example, calling `anova()` on that model will return the results of each "submodel" with variables added in the order of the model formula. You'll note above that I specified `metastatic + CTA_all`, so the base model will include no covariates, model 1 will include metastatic status, and model 2 will include both covariates. 
+
+```{r}
+anova(surv_full)
+```
+
+We can see that adding `metastatic` is signficant. Given that `metastatic` is in the model, adding `CTA_all` is also significant. 
+
+What about CTA_chrX as a covariate? 
+
+```{r}
+surv_full_X = survival::coxph(
+  survival::Surv(time,status) ~ metastatic + CTA_chrX, 
+  data=ssgsea_survival)
+anova(surv_full_X)
+```
+So, it looks like `CTA_chrX` results also add value to the model. How about including everything?
+
+Including both "CTA" result sets looks like:
+
+```{r}
+surv_all = survival::coxph(
+  survival::Surv(time,status) ~ metastatic + CTA_chrX + CTA_all, 
+  data=ssgsea_survival)
+anova(surv_all)
+```
+
+And, for completeness, let's switch the ordering of the CTA sets?
+
+```{r}
+surv_all = survival::coxph(
+  survival::Surv(time,status) ~ metastatic + CTA_all + CTA_chrX, 
+  data=ssgsea_survival)
+anova(surv_all)
+```
+
+Why does adding another CTA set not help? Looking at the relationship between the two CTA result sets is helpful.
+
+```{r ssgsea, fig.width=7, fig.height=5, out.width='100%', fig.cap='Scatterplot of single sample GSEA scores showing very high correlation between the two'}
+with(ssgsea_survival, plot(CTA_chrX, CTA_all))
+```
+With such high correlation between the two sets (see Figure \@ref(fig:ssgsea)), we can understand how including one in the model makes the other irrelevant. 
+
+## Splitting into two groups first
+
+If we had split the data into "met" and "no-met" groups and then performed the Cox regression, we get the following results:
 
 ```{r}
 met_choices = unique(ssgsea_survival$metastatic)
@@ -78,10 +211,26 @@ res = lapply(met_choices, function(met) {
 })
 names(res) = met_choices
 knitr::kable(
+  label = 'metsep',
   dplyr::bind_rows(lapply(res,broom::tidy),.id='met_status'),
   caption = "Cox proportional hazards models to determine the effect of CTA genes on chromosome X (from ssGSEA analysis), applied separately to metastatic and non-metastatic patients. Note that the p-values are not significant when patients are treated separately."
 )
 ```
+
+Checking the p-values for the CTA_chrX covariate in Table \@ref(tab:metsep) in *each group separately*, we see that they are trending in the right direction, but are not significant. 
+
+## Summary
+
+- Kaplan-Meier and logrank tests have limited application to a single categorical variable
+- Cox regression is applicable for both continuous and categorical and can be applied to multiple variables as once.
+
+When working with Cox regression:
+
+- To test the significance of a variable, apply `anova()` to the model.
+- To see the hazard ratios associated with a condition, use `summary()` and look at the `exp(coef)`.
+- To determine if adding a variable improves a model, compare the model to a simpler model without the extra variable using `anova()`.
+
+## References
 
 
 
