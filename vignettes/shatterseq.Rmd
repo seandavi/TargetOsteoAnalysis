@@ -1,0 +1,60 @@
+---
+title: "ShatterSeq"
+author: "Sean Davis"
+date: "9/17/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message=FALSE)
+library(TargetOsteoAnalysis)
+ssres = shatterseq_results()
+```
+
+## Structural Variants per Sample
+
+```{r}
+library(ggplot2)
+library(dplyr)
+svs_per_sample = ssres %>% select(SampleName, number_SVs_sample) %>% unique()
+hist(svs_per_sample$number_SVs_sample, main = "Number of SVs per sample", xlab="Number of SVs")
+```
+
+## Filtering criteria
+
+- High confidence: at least 6 interleaved intrachromosomal SVs, 7 contiguous segments oscillating between 2 CN states, the fragment joins test, and either the chromosomal enrichment
+or the exponential distribution of breakpoints test.
+- High confidence: at least 3 interleaved intrachromosomal SVs and 4 or more interchromosomal
+SVs, 7 contiguous segments oscillating between 2 CN states and the fragment joins test.
+
+## Filtering code
+
+```{r, echo=TRUE}
+ssres2= ssres %>% mutate(high_conf = ((number_intra_SV>5 & 
+                       max_number_oscillating_CN_segments_2_states>6 &
+                       pval_fragment_joins<0.01 & 
+                         (chr_breakpoint_enrichment<0.01 | pval_exp_chr<0.01))) 
+                       |
+                         ((number_intra_SV>3 & (inter_number_DEL+inter_number_h2hINV+inter_number_t2tINV+inter_number_DUP>4)) 
+                          & pval_fragment_joins<0.01 
+                          & max_number_oscillating_CN_segments_2_states>6))
+```
+
+## Per sample results
+
+
+```{r}
+tmp = ssres2 %>% filter(high_conf==TRUE) %>% select(SampleName, chrom)
+tmp = tmp %>% select(SampleName) %>% group_by(SampleName) %>% summarize(chromothripsis_chroms=n())
+ggplot(tmp, aes(x=SampleName, y=chromothripsis_chroms)) + geom_bar(stat = 'identity') + theme(axis.text.x=element_text(angle = -45, hjust = 0))
+```
+
+
+## Per chromosome results
+
+
+```{r}
+tmp = ssres2 %>% filter(high_conf==TRUE) %>% select(SampleName, chrom)
+tmp = tmp %>% select(chrom) %>% group_by(chrom) %>% summarize(chromothripsis_samples=n())
+ggplot(tmp, aes(x=chrom, y=chromothripsis_samples)) + geom_bar(stat = 'identity')
+```
