@@ -22,6 +22,9 @@
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/lcc_genes.html</loc>
   </url>
   <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/shatterseq_results.html</loc>
+  </url>
+  <url>
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/reference/sleepingbeauty.html</loc>
   </url>
   <url>
@@ -59,5 +62,11 @@
   </url>
   <url>
     <loc>https://seandavi.github.io/TargetOsteoAnalysis/articles/lcc_variants.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/articles/multivariate_survival.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/TargetOsteoAnalysis/articles/shatterseq.html</loc>
   </url>
 </urlset>

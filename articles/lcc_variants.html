@@ -6,12 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Analysis of variants for LCC genes • Target Osteosarcoma Data</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Analysis of variants for LCC genes">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="TargetOsteoAnalysis">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -23,7 +24,7 @@
   gtag('config', 'UA-93043521-1');
 </script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -36,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Target Osteosarcoma Data</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -44,7 +45,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -60,6 +61,12 @@
   <ul class="dropdown-menu" role="menu">
 <li>
       <a href="../articles/lcc_variants.html">Analysis of variants for LCC genes</a>
+    </li>
+    <li>
+      <a href="../articles/multivariate_survival.html">Multivariate survival analysis</a>
+    </li>
+    <li>
+      <a href="../articles/shatterseq.html">ShatterSeq</a>
     </li>
   </ul>
 </li>
@@ -80,15 +87,16 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Analysis of variants for LCC genes</h1>
+      <h1 data-toc-skip>Analysis of variants for LCC genes</h1>
                         <h4 class="author">Sean Davis</h4>
             
             <h4 class="date">8/8/2019</h4>
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/seandavi/TargetOsteoAnalysis/blob/master/vignettes/lcc_variants.Rmd"><code>vignettes/lcc_variants.Rmd</code></a></small>
       <div class="hidden name"><code>lcc_variants.Rmd</code></div>
 
     </div>
@@ -109,14 +117,21 @@
 <h1 class="hasAnchor">
 <a href="#results" class="anchor"></a>Results</h1>
 <p>Load variants and genes.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(TargetOsteoAnalysis)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">variants =<span class="st"> </span><span class="kw"><a href="../reference/variant_calls.html">variant_calls</a></span>() <span class="co"># mutect calls as a tibble</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">TargetOsteoAnalysis</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
+<span class="no">variants</span> <span class="kw">=</span> <span class="fu"><a href="../reference/variant_calls.html">variant_calls</a></span>() <span class="co"># mutect calls as a tibble</span></pre></body></html></div>
 <p>And find unique variants for each of the LCC genes, regardless of sequencing technique used.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">unique_vars =<span class="st"> </span>variants <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(SampleName, Chromosome, Start_Position, End_Position, Hugo_Symbol, Variant_Type) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(Hugo_Symbol <span class="op">%in%</span><span class="st"> </span><span class="kw"><a href="../reference/lcc_genes.html">lcc_genes</a></span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">unique_vars</span> <span class="kw">=</span> <span class="no">variants</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="no">SampleName</span>, <span class="no">Chromosome</span>, <span class="no">Start_Position</span>,
+                 <span class="no">End_Position</span>, <span class="no">Variant_Type</span>, <span class="no">t_vaf</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span>(<span class="no">SampleName</span>, <span class="no">Chromosome</span>, <span class="no">Start_Position</span>,
+                  <span class="no">End_Position</span>, <span class="no">Variant_Type</span>, <span class="kw">.keep_all</span><span class="kw">=</span><span class="fl">TRUE</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">rename</a></span>(<span class="kw">VariantAlleleFreq</span> <span class="kw">=</span> <span class="no">t_vaf</span>, <span class="kw">HGVS</span> <span class="kw">=</span> <span class="no">HGVSp_Short</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">SampleName</span>, <span class="no">Chromosome</span>, <span class="no">Start_Position</span>,
+                <span class="no">End_Position</span>, <span class="no">Hugo_Symbol</span>, <span class="no">Variant_Type</span>,
+                <span class="no">VariantAlleleFreq</span>, <span class="no">HGVS</span>, <span class="no">Transcript_ID</span>,
+                <span class="no">Consequence</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">Hugo_Symbol</span> <span class="kw">%in%</span> <span class="fu"><a href="../reference/lcc_genes.html">lcc_genes</a></span>())</pre></body></html></div>
 <p>All unique variants for the LCC genes are:</p>
 <table class="table">
 <thead><tr class="header">
@@ -126,6 +141,10 @@
 <th align="right">End_Position</th>
 <th align="left">Hugo_Symbol</th>
 <th align="left">Variant_Type</th>
+<th align="right">VariantAlleleFreq</th>
+<th align="left">HGVS</th>
+<th align="left">Transcript_ID</th>
+<th align="left">Consequence</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -135,6 +154,10 @@
 <td align="right">7577106</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8040000</td>
+<td align="left">p.P278S</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">0A4HX8_Tumor</td>
@@ -143,6 +166,10 @@
 <td align="right">7578461</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8970000</td>
+<td align="left">p.V157F</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I4E_Tumor</td>
@@ -151,6 +178,10 @@
 <td align="right">49039206</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.8150000</td>
+<td align="left">p.Q762*</td>
+<td align="left">ENST00000267163</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="even">
 <td align="left">0A4I4E_Tumor</td>
@@ -159,6 +190,10 @@
 <td align="right">7578290</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6720000</td>
+<td align="left">p.X187_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_acceptor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I5B_Tumor</td>
@@ -167,6 +202,10 @@
 <td align="right">7578257</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5930000</td>
+<td align="left">p.E198*</td>
+<td align="left">ENST00000269305</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="even">
 <td align="left">0A4I6O_Tumor</td>
@@ -175,6 +214,10 @@
 <td align="right">7578532</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5430000</td>
+<td align="left">p.M133K</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I9K_Tumor</td>
@@ -183,6 +226,10 @@
 <td align="right">7577097</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6730000</td>
+<td align="left">p.D281N</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAECZ_Tumor</td>
@@ -191,6 +238,10 @@
 <td align="right">7577142</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5000000</td>
+<td align="left">p.G266R</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAEDB_Tumor</td>
@@ -199,6 +250,10 @@
 <td align="right">7578192</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.7740000</td>
+<td align="left">p.Y220Mfs*27</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAEDG_Tumor</td>
@@ -207,6 +262,10 @@
 <td align="right">7577498</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5830000</td>
+<td align="left">p.X261_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_donor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAGJP_Tumor</td>
@@ -215,6 +274,10 @@
 <td align="right">7577094</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.1279621</td>
+<td align="left">p.R282W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAGJP_Tumor</td>
@@ -223,6 +286,10 @@
 <td align="right">76938407</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.1140000</td>
+<td align="left">p.R781*</td>
+<td align="left">ENST00000373344</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAGJZ_Tumor</td>
@@ -231,6 +298,10 @@
 <td align="right">76937963</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.3676471</td>
+<td align="left">p.Q929E</td>
+<td align="left">ENST00000373344</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAGKM_Tumor</td>
@@ -239,6 +310,10 @@
 <td align="right">7579373</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6360000</td>
+<td align="left">p.G105V</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBI_Tumor</td>
@@ -247,6 +322,10 @@
 <td align="right">7577018</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8250000</td>
+<td align="left">p.X307_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_donor_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBK_Tumor</td>
@@ -255,6 +334,10 @@
 <td align="right">7577114</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.1890000</td>
+<td align="left">p.C275Y</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBU_RecurrentTumor</td>
@@ -263,6 +346,10 @@
 <td align="right">7579358</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8700000</td>
+<td align="left">p.R110L</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBU_RecurrentTumor</td>
@@ -271,6 +358,10 @@
 <td align="right">76939918</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.1910000</td>
+<td align="left">p.V277D</td>
+<td align="left">ENST00000373344</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBU_Tumor</td>
@@ -279,6 +370,10 @@
 <td align="right">7579358</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.4740000</td>
+<td align="left">p.R110L</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBY_RecurrentTumor</td>
@@ -287,6 +382,10 @@
 <td align="right">7578525</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.4120000</td>
+<td align="left">p.C135W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBY_Tumor</td>
@@ -295,6 +394,10 @@
 <td align="right">7578525</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5170000</td>
+<td align="left">p.C135W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBZ_Tumor</td>
@@ -303,6 +406,10 @@
 <td align="right">7577097</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5530000</td>
+<td align="left">p.D281Y</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHCF_Tumor</td>
@@ -311,6 +418,10 @@
 <td align="right">7578382</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5820000</td>
+<td align="left">p.S183*</td>
+<td align="left">ENST00000269305</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHCH_Tumor</td>
@@ -319,6 +430,10 @@
 <td align="right">7577539</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6630000</td>
+<td align="left">p.R248W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHCJ_RecurrentTumor</td>
@@ -327,6 +442,10 @@
 <td align="right">7579446</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.7140000</td>
+<td align="left">p.T81Gfs*32</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHCJ_Tumor</td>
@@ -335,6 +454,10 @@
 <td align="right">7579446</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.7860000</td>
+<td align="left">p.T81Gfs*32</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHCR_Tumor</td>
@@ -343,6 +466,10 @@
 <td align="right">7578545</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.5660000</td>
+<td align="left">p.A129Pfs*41</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHDF_Tumor</td>
@@ -351,6 +478,10 @@
 <td align="right">89692911</td>
 <td align="left">PTEN</td>
 <td align="left">SNP</td>
+<td align="right">0.1150000</td>
+<td align="left">p.G132D</td>
+<td align="left">ENST00000371953</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHDL_Tumor</td>
@@ -359,6 +490,10 @@
 <td align="right">7577108</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.3650000</td>
+<td align="left">p.C277F</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAIBU_Tumor</td>
@@ -367,6 +502,10 @@
 <td align="right">48881489</td>
 <td align="left">RB1</td>
 <td align="left">INS</td>
+<td align="right">0.2777778</td>
+<td align="left">p.A74Efs*4</td>
+<td align="left">ENST00000267163</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAIBW_Tumor</td>
@@ -375,6 +514,10 @@
 <td align="right">89685296</td>
 <td align="left">PTEN</td>
 <td align="left">SNP</td>
+<td align="right">0.5142857</td>
+<td align="left">p.H64P</td>
+<td align="left">ENST00000371953</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAASJI_Tumor</td>
@@ -383,6 +526,10 @@
 <td align="right">7579310</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.4838710</td>
+<td align="left">p.X125_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_donor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAWEX_Tumor</td>
@@ -391,6 +538,10 @@
 <td align="right">7577121</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.7610000</td>
+<td align="left">p.R273C</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAWGR_Tumor</td>
@@ -399,6 +550,10 @@
 <td align="right">76940042</td>
 <td align="left">ATRX</td>
 <td align="left">DEL</td>
+<td align="right">0.6770000</td>
+<td align="left">p.H236Ifs*21</td>
+<td align="left">ENST00000373344</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAIXFY_Tumor</td>
@@ -407,6 +562,10 @@
 <td align="right">48921987</td>
 <td align="left">RB1</td>
 <td align="left">DEL</td>
+<td align="right">0.7220000</td>
+<td align="left">p.Q176Hfs*10</td>
+<td align="left">ENST00000267163</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PAKUZU_Tumor</td>
@@ -415,6 +574,10 @@
 <td align="right">49039169</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.5590000</td>
+<td align="left">p.Y749*</td>
+<td align="left">ENST00000267163</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="odd">
 <td align="left">PAKXLD_Tumor</td>
@@ -423,6 +586,10 @@
 <td align="right">7577120</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5910000</td>
+<td align="left">p.R273H</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PAKZZK_Tumor</td>
@@ -431,6 +598,10 @@
 <td align="right">7577094</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6600000</td>
+<td align="left">p.R282W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMHLF_Tumor</td>
@@ -439,6 +610,10 @@
 <td align="right">7578190</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8330000</td>
+<td align="left">p.Y220C</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PAMJXS_Tumor</td>
@@ -447,6 +622,10 @@
 <td align="right">7577114</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.7250000</td>
+<td align="left">p.C275Y</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMRHD_Tumor</td>
@@ -455,6 +634,10 @@
 <td align="right">49037917</td>
 <td align="left">RB1</td>
 <td align="left">DEL</td>
+<td align="right">0.5860000</td>
+<td align="left">p.L719del</td>
+<td align="left">ENST00000267163</td>
+<td align="left">inframe_deletion</td>
 </tr>
 <tr class="even">
 <td align="left">PAMYYJ_Tumor</td>
@@ -463,6 +646,10 @@
 <td align="right">49027154</td>
 <td align="left">RB1</td>
 <td align="left">INS</td>
+<td align="right">0.6110000</td>
+<td align="left">p.K574Ifs*11</td>
+<td align="left">ENST00000267163</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMYYJ_Tumor</td>
@@ -471,6 +658,10 @@
 <td align="right">76937383</td>
 <td align="left">ATRX</td>
 <td align="left">DEL</td>
+<td align="right">0.6000000</td>
+<td align="left">p.C1122Lfs*8</td>
+<td align="left">ENST00000373344</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PANGCY_Tumor</td>
@@ -479,6 +670,10 @@
 <td align="right">30050682</td>
 <td align="left">NF2</td>
 <td align="left">INS</td>
+<td align="right">0.0940000</td>
+<td align="left">p.L163Ffs*40</td>
+<td align="left">ENST00000338641</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PANMIG_Tumor</td>
@@ -487,6 +682,10 @@
 <td align="right">49027128</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.7710000</td>
+<td align="left">p.X566_splice</td>
+<td align="left">ENST00000267163</td>
+<td align="left">splice_acceptor_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PANMIG_Tumor</td>
@@ -495,6 +694,10 @@
 <td align="right">76855051</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.9160000</td>
+<td align="left">p.X1929_splice</td>
+<td align="left">ENST00000373344</td>
+<td align="left">splice_acceptor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAPVYW_Tumor</td>
@@ -503,6 +706,10 @@
 <td align="right">7577120</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.3750000</td>
+<td align="left">p.R273H</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PARDAX_Tumor</td>
@@ -511,6 +718,10 @@
 <td align="right">48955550</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.7500000</td>
+<td align="left">p.R556*</td>
+<td align="left">ENST00000267163</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="odd">
 <td align="left">PARDAX_Tumor</td>
@@ -519,6 +730,10 @@
 <td align="right">7578203</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.7880000</td>
+<td align="left">p.V216M</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PASEFS_Tumor</td>
@@ -527,6 +742,10 @@
 <td align="right">7576855</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.9920000</td>
+<td align="left">p.Q331*</td>
+<td align="left">ENST00000269305</td>
+<td align="left">stop_gained,splice_region_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PASEFS_Tumor</td>
@@ -535,6 +754,10 @@
 <td align="right">76938594</td>
 <td align="left">ATRX</td>
 <td align="left">INS</td>
+<td align="right">0.9680000</td>
+<td align="left">p.S719Ifs*2</td>
+<td align="left">ENST00000373344</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PASKZZ_Tumor</td>
@@ -543,6 +766,10 @@
 <td align="right">7578475</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.6500000</td>
+<td align="left">p.P152Rfs*18</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PASNZV_Tumor</td>
@@ -551,6 +778,10 @@
 <td align="right">48955538</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.6260000</td>
+<td align="left">p.R552*</td>
+<td align="left">ENST00000267163</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="even">
 <td align="left">PASNZV_Tumor</td>
@@ -559,6 +790,10 @@
 <td align="right">7579325</td>
 <td align="left">TP53</td>
 <td align="left">INS</td>
+<td align="right">0.6680000</td>
+<td align="left">p.V122Sfs*3</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PASSLM_Tumor</td>
@@ -567,6 +802,10 @@
 <td align="right">48953743</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.8150000</td>
+<td align="left">p.G449V</td>
+<td align="left">ENST00000267163</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PASSLM_Tumor</td>
@@ -575,6 +814,10 @@
 <td align="right">7577498</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.9440000</td>
+<td align="left">p.X261_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_donor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PASSLM_Tumor</td>
@@ -583,6 +826,10 @@
 <td align="right">76937880</td>
 <td align="left">ATRX</td>
 <td align="left">INS</td>
+<td align="right">0.9430000</td>
+<td align="left">p.V957Sfs*7</td>
+<td align="left">ENST00000373344</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PATMXR_Tumor</td>
@@ -591,6 +838,10 @@
 <td align="right">76891541</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.4184100</td>
+<td align="left">p.E1522K</td>
+<td align="left">ENST00000373344</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PATPBS_Tumor</td>
@@ -599,6 +850,10 @@
 <td align="right">7577094</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5640000</td>
+<td align="left">p.R282W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PATUXZ_Tumor</td>
@@ -607,6 +862,10 @@
 <td align="right">76874323</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.7260000</td>
+<td align="left">p.M1800K</td>
+<td align="left">ENST00000373344</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAVDSN_Tumor</td>
@@ -615,6 +874,10 @@
 <td align="right">7577545</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8560000</td>
+<td align="left">p.M246V</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PAVLIB_Tumor</td>
@@ -623,6 +886,10 @@
 <td align="right">7577142</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.1160000</td>
+<td align="left">p.G266R</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAVXDP_Tumor</td>
@@ -631,6 +898,10 @@
 <td align="right">7578532</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.7000000</td>
+<td align="left">p.M133K</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 </tbody>
 </table>
@@ -643,6 +914,10 @@
 <th align="right">End_Position</th>
 <th align="left">Hugo_Symbol</th>
 <th align="left">Variant_Type</th>
+<th align="right">VariantAlleleFreq</th>
+<th align="left">HGVS</th>
+<th align="left">Transcript_ID</th>
+<th align="left">Consequence</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -652,6 +927,10 @@
 <td align="right">7577106</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8040000</td>
+<td align="left">p.P278S</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">0A4HX8_Tumor</td>
@@ -660,6 +939,10 @@
 <td align="right">7578461</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8970000</td>
+<td align="left">p.V157F</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I4E_Tumor</td>
@@ -668,6 +951,10 @@
 <td align="right">49039206</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.8150000</td>
+<td align="left">p.Q762*</td>
+<td align="left">ENST00000267163</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="even">
 <td align="left">0A4I4E_Tumor</td>
@@ -676,6 +963,10 @@
 <td align="right">7578290</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6720000</td>
+<td align="left">p.X187_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_acceptor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I5B_Tumor</td>
@@ -684,6 +975,10 @@
 <td align="right">7578257</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5930000</td>
+<td align="left">p.E198*</td>
+<td align="left">ENST00000269305</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="even">
 <td align="left">0A4I6O_Tumor</td>
@@ -692,6 +987,10 @@
 <td align="right">7578532</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5430000</td>
+<td align="left">p.M133K</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">0A4I9K_Tumor</td>
@@ -700,6 +999,10 @@
 <td align="right">7577097</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6730000</td>
+<td align="left">p.D281N</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAECZ_Tumor</td>
@@ -708,6 +1011,10 @@
 <td align="right">7577142</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5000000</td>
+<td align="left">p.G266R</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAEDB_Tumor</td>
@@ -716,6 +1023,10 @@
 <td align="right">7578192</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.7740000</td>
+<td align="left">p.Y220Mfs*27</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAEDG_Tumor</td>
@@ -724,6 +1035,10 @@
 <td align="right">7577498</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5830000</td>
+<td align="left">p.X261_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_donor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAGJP_Tumor</td>
@@ -732,6 +1047,10 @@
 <td align="right">7577094</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.1279621</td>
+<td align="left">p.R282W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAGJP_Tumor</td>
@@ -740,6 +1059,10 @@
 <td align="right">76938407</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.1140000</td>
+<td align="left">p.R781*</td>
+<td align="left">ENST00000373344</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAGJZ_Tumor</td>
@@ -748,6 +1071,10 @@
 <td align="right">76937963</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.3676471</td>
+<td align="left">p.Q929E</td>
+<td align="left">ENST00000373344</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAGKM_Tumor</td>
@@ -756,6 +1083,10 @@
 <td align="right">7579373</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6360000</td>
+<td align="left">p.G105V</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBI_Tumor</td>
@@ -764,6 +1095,10 @@
 <td align="right">7577018</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8250000</td>
+<td align="left">p.X307_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_donor_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBK_Tumor</td>
@@ -772,6 +1107,10 @@
 <td align="right">7577114</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.1890000</td>
+<td align="left">p.C275Y</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBU_Tumor</td>
@@ -780,6 +1119,10 @@
 <td align="right">7579358</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.4740000</td>
+<td align="left">p.R110L</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHBY_Tumor</td>
@@ -788,6 +1131,10 @@
 <td align="right">7578525</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5170000</td>
+<td align="left">p.C135W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHBZ_Tumor</td>
@@ -796,6 +1143,10 @@
 <td align="right">7577097</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5530000</td>
+<td align="left">p.D281Y</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHCF_Tumor</td>
@@ -804,6 +1155,10 @@
 <td align="right">7578382</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5820000</td>
+<td align="left">p.S183*</td>
+<td align="left">ENST00000269305</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHCH_Tumor</td>
@@ -812,6 +1167,10 @@
 <td align="right">7577539</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6630000</td>
+<td align="left">p.R248W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHCJ_Tumor</td>
@@ -820,6 +1179,10 @@
 <td align="right">7579446</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.7860000</td>
+<td align="left">p.T81Gfs*32</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHCR_Tumor</td>
@@ -828,6 +1191,10 @@
 <td align="right">7578545</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.5660000</td>
+<td align="left">p.A129Pfs*41</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAHDF_Tumor</td>
@@ -836,6 +1203,10 @@
 <td align="right">89692911</td>
 <td align="left">PTEN</td>
 <td align="left">SNP</td>
+<td align="right">0.1150000</td>
+<td align="left">p.G132D</td>
+<td align="left">ENST00000371953</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAHDL_Tumor</td>
@@ -844,6 +1215,10 @@
 <td align="right">7577108</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.3650000</td>
+<td align="left">p.C277F</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAIBU_Tumor</td>
@@ -852,6 +1227,10 @@
 <td align="right">48881489</td>
 <td align="left">RB1</td>
 <td align="left">INS</td>
+<td align="right">0.2777778</td>
+<td align="left">p.A74Efs*4</td>
+<td align="left">ENST00000267163</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAIBW_Tumor</td>
@@ -860,6 +1239,10 @@
 <td align="right">89685296</td>
 <td align="left">PTEN</td>
 <td align="left">SNP</td>
+<td align="right">0.5142857</td>
+<td align="left">p.H64P</td>
+<td align="left">ENST00000371953</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAASJI_Tumor</td>
@@ -868,6 +1251,10 @@
 <td align="right">7579310</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.4838710</td>
+<td align="left">p.X125_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_donor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">NAAWEX_Tumor</td>
@@ -876,6 +1263,10 @@
 <td align="right">7577121</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.7610000</td>
+<td align="left">p.R273C</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">NAAWGR_Tumor</td>
@@ -884,6 +1275,10 @@
 <td align="right">76940042</td>
 <td align="left">ATRX</td>
 <td align="left">DEL</td>
+<td align="right">0.6770000</td>
+<td align="left">p.H236Ifs*21</td>
+<td align="left">ENST00000373344</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAIXFY_Tumor</td>
@@ -892,6 +1287,10 @@
 <td align="right">48921987</td>
 <td align="left">RB1</td>
 <td align="left">DEL</td>
+<td align="right">0.7220000</td>
+<td align="left">p.Q176Hfs*10</td>
+<td align="left">ENST00000267163</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PAKUZU_Tumor</td>
@@ -900,6 +1299,10 @@
 <td align="right">49039169</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.5590000</td>
+<td align="left">p.Y749*</td>
+<td align="left">ENST00000267163</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="odd">
 <td align="left">PAKXLD_Tumor</td>
@@ -908,6 +1311,10 @@
 <td align="right">7577120</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5910000</td>
+<td align="left">p.R273H</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PAKZZK_Tumor</td>
@@ -916,6 +1323,10 @@
 <td align="right">7577094</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.6600000</td>
+<td align="left">p.R282W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMHLF_Tumor</td>
@@ -924,6 +1335,10 @@
 <td align="right">7578190</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8330000</td>
+<td align="left">p.Y220C</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PAMJXS_Tumor</td>
@@ -932,6 +1347,10 @@
 <td align="right">7577114</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.7250000</td>
+<td align="left">p.C275Y</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMRHD_Tumor</td>
@@ -940,6 +1359,10 @@
 <td align="right">49037917</td>
 <td align="left">RB1</td>
 <td align="left">DEL</td>
+<td align="right">0.5860000</td>
+<td align="left">p.L719del</td>
+<td align="left">ENST00000267163</td>
+<td align="left">inframe_deletion</td>
 </tr>
 <tr class="even">
 <td align="left">PAMYYJ_Tumor</td>
@@ -948,6 +1371,10 @@
 <td align="right">49027154</td>
 <td align="left">RB1</td>
 <td align="left">INS</td>
+<td align="right">0.6110000</td>
+<td align="left">p.K574Ifs*11</td>
+<td align="left">ENST00000267163</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAMYYJ_Tumor</td>
@@ -956,6 +1383,10 @@
 <td align="right">76937383</td>
 <td align="left">ATRX</td>
 <td align="left">DEL</td>
+<td align="right">0.6000000</td>
+<td align="left">p.C1122Lfs*8</td>
+<td align="left">ENST00000373344</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PANGCY_Tumor</td>
@@ -964,6 +1395,10 @@
 <td align="right">30050682</td>
 <td align="left">NF2</td>
 <td align="left">INS</td>
+<td align="right">0.0940000</td>
+<td align="left">p.L163Ffs*40</td>
+<td align="left">ENST00000338641</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PANMIG_Tumor</td>
@@ -972,6 +1407,10 @@
 <td align="right">49027128</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.7710000</td>
+<td align="left">p.X566_splice</td>
+<td align="left">ENST00000267163</td>
+<td align="left">splice_acceptor_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PANMIG_Tumor</td>
@@ -980,6 +1419,10 @@
 <td align="right">76855051</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.9160000</td>
+<td align="left">p.X1929_splice</td>
+<td align="left">ENST00000373344</td>
+<td align="left">splice_acceptor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAPVYW_Tumor</td>
@@ -988,6 +1431,10 @@
 <td align="right">7577120</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.3750000</td>
+<td align="left">p.R273H</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PARDAX_Tumor</td>
@@ -996,6 +1443,10 @@
 <td align="right">48955550</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.7500000</td>
+<td align="left">p.R556*</td>
+<td align="left">ENST00000267163</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="odd">
 <td align="left">PARDAX_Tumor</td>
@@ -1004,6 +1455,10 @@
 <td align="right">7578203</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.7880000</td>
+<td align="left">p.V216M</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PASEFS_Tumor</td>
@@ -1012,6 +1467,10 @@
 <td align="right">7576855</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.9920000</td>
+<td align="left">p.Q331*</td>
+<td align="left">ENST00000269305</td>
+<td align="left">stop_gained,splice_region_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PASEFS_Tumor</td>
@@ -1020,6 +1479,10 @@
 <td align="right">76938594</td>
 <td align="left">ATRX</td>
 <td align="left">INS</td>
+<td align="right">0.9680000</td>
+<td align="left">p.S719Ifs*2</td>
+<td align="left">ENST00000373344</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PASKZZ_Tumor</td>
@@ -1028,6 +1491,10 @@
 <td align="right">7578475</td>
 <td align="left">TP53</td>
 <td align="left">DEL</td>
+<td align="right">0.6500000</td>
+<td align="left">p.P152Rfs*18</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PASNZV_Tumor</td>
@@ -1036,6 +1503,10 @@
 <td align="right">48955538</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.6260000</td>
+<td align="left">p.R552*</td>
+<td align="left">ENST00000267163</td>
+<td align="left">stop_gained</td>
 </tr>
 <tr class="even">
 <td align="left">PASNZV_Tumor</td>
@@ -1044,6 +1515,10 @@
 <td align="right">7579325</td>
 <td align="left">TP53</td>
 <td align="left">INS</td>
+<td align="right">0.6680000</td>
+<td align="left">p.V122Sfs*3</td>
+<td align="left">ENST00000269305</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PASSLM_Tumor</td>
@@ -1052,6 +1527,10 @@
 <td align="right">48953743</td>
 <td align="left">RB1</td>
 <td align="left">SNP</td>
+<td align="right">0.8150000</td>
+<td align="left">p.G449V</td>
+<td align="left">ENST00000267163</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PASSLM_Tumor</td>
@@ -1060,6 +1539,10 @@
 <td align="right">7577498</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.9440000</td>
+<td align="left">p.X261_splice</td>
+<td align="left">ENST00000269305</td>
+<td align="left">splice_donor_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PASSLM_Tumor</td>
@@ -1068,6 +1551,10 @@
 <td align="right">76937880</td>
 <td align="left">ATRX</td>
 <td align="left">INS</td>
+<td align="right">0.9430000</td>
+<td align="left">p.V957Sfs*7</td>
+<td align="left">ENST00000373344</td>
+<td align="left">frameshift_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PATMXR_Tumor</td>
@@ -1076,6 +1563,10 @@
 <td align="right">76891541</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.4184100</td>
+<td align="left">p.E1522K</td>
+<td align="left">ENST00000373344</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PATPBS_Tumor</td>
@@ -1084,6 +1575,10 @@
 <td align="right">7577094</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.5640000</td>
+<td align="left">p.R282W</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PATUXZ_Tumor</td>
@@ -1092,6 +1587,10 @@
 <td align="right">76874323</td>
 <td align="left">ATRX</td>
 <td align="left">SNP</td>
+<td align="right">0.7260000</td>
+<td align="left">p.M1800K</td>
+<td align="left">ENST00000373344</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAVDSN_Tumor</td>
@@ -1100,6 +1599,10 @@
 <td align="right">7577545</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.8560000</td>
+<td align="left">p.M246V</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="even">
 <td align="left">PAVLIB_Tumor</td>
@@ -1108,6 +1611,10 @@
 <td align="right">7577142</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.1160000</td>
+<td align="left">p.G266R</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 <tr class="odd">
 <td align="left">PAVXDP_Tumor</td>
@@ -1116,33 +1623,39 @@
 <td align="right">7578532</td>
 <td align="left">TP53</td>
 <td align="left">SNP</td>
+<td align="right">0.7000000</td>
+<td align="left">p.M133K</td>
+<td align="left">ENST00000269305</td>
+<td align="left">missense_variant</td>
 </tr>
 </tbody>
 </table>
 <p>Gene counts (counting each gene only once per sample) are:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">unique_gene_samples =<span class="st"> </span>unique_vars <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">grepl</a></span>(<span class="st">'recurrent'</span>, SampleName, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(SampleName, Hugo_Symbol) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique</a></span>()</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sort">sort</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(unique_gene_samples<span class="op">$</span>Hugo_Symbol))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">unique_gene_samples</span> <span class="kw">=</span> <span class="no">unique_vars</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(!<span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="st">'recurrent'</span>, <span class="no">SampleName</span>, <span class="kw">ignore.case</span> <span class="kw">=</span> <span class="fl">TRUE</span>)) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">SampleName</span>, <span class="no">Hugo_Symbol</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">unique_gene_samples</span>$<span class="no">Hugo_Symbol</span>))</pre></body></html></div>
 <pre><code>## 
 ##  NF2 PTEN ATRX  RB1 TP53 
 ##    1    2    9   10   37</code></pre>
+<div id="exported-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#exported-data" class="anchor"></a>Exported data</h2>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="kw pkg">readr</span><span class="kw ns">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">write_lines</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">'# Protein-altering somatic variants in any of the genes '</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="fu"><a href="../reference/lcc_genes.html">lcc_genes</a></span>(), <span class="kw">collapse</span><span class="kw">=</span><span class="st">", "</span>)), <span class="st">'/tmp/unique_vars_LCC_mutect.csv'</span>)
+<span class="kw pkg">readr</span><span class="kw ns">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span>(<span class="no">unique_vars</span>, <span class="st">'/tmp/unique_vars_LCC_mutect.csv'</span>, <span class="kw">append</span><span class="kw">=</span><span class="fl">TRUE</span>, <span class="kw">col_names</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
+</div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#overview">Overview</a></li>
-      <li><a href="#results">Results</a></li>
-      </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
+
 
 
       <footer><div class="copyright">
@@ -1150,12 +1663,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
