@@ -1,0 +1,87 @@
+---
+title: "multivariate_survival"
+output: 
+  bookdown::html_document2
+bibliography: references.bib
+vignette: >
+  %\VignetteIndexEntry{multivariate_survival}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, warning=FALSE,message=FALSE}
+library(TargetOsteoAnalysis)
+library(survival)
+library(survminer)
+library(tidytidbits)
+library(dplyr)
+```
+
+```{r getdataset}
+ssgsea_survival = read.delim(
+  system.file('extdata/All_ssGSEA_CTA4surv.txt.gz',
+              package='TargetOsteoAnalysis'),
+  sep="\t") %>%
+  dplyr::mutate(status=Vital.Status=='Dead',
+                time = Overall.Survival.Time.in.Days,
+                gender = stringr::str_trim(Gender),
+                metastatic = Disease.at.diagnosis) %>%
+  dplyr::select(status,time,metastatic,CTA_chrX,CTA_all,gender)
+```
+
+```{r}
+library(DT)
+datatable(ssgsea_survival)
+```
+
+The Cox proportional-hazards model [@Cox1972-cj] is semi-parametric regression model commonly used for investigating the association between the survival time of patients and one or more predictor variables. Kaplan-Meier curves and logrank tests - are examples of *univariate* analysis approaches. They can be applied in the setting of one factor under investigation, but ignore the impact of any others. Additionally, Kaplan-Meier curves and logrank tests are useful only when the predictor variable is categorical (e.g.: treatment A vs treatment B; males vs females). They don’t work easily for quantitative predictors such as gene expression, weight, or age without binning the variable first to create categories
+
+Cox proportional hazards regression analysis works for both quantitative predictor variables and for categorical variables. Furthermore, the Cox regression model extends survival analysis methods to assess simultaneously the effect of several risk factors on survival time; ie., Cox regression can be *multivariate*. 
+
+## Kaplan-Meier/LogRank test vs Cox Regression
+
+```{r fig.cap='Simple Kaplan-Meier survival plot', fig.width=8, fig.height=5, out.width='100%'}
+surv_km  = survfit(survival::Surv(time,status) ~ metastatic, data=ssgsea_survival)
+survminer::ggsurvplot(surv_km, risk.table = TRUE)
+surv_km
+```
+
+```{r}
+surv_met = survival::coxph(survival::Surv(time,status) ~ metastatic, data=ssgsea_survival)
+
+```
+
+
+
+```{r}
+summary(surv_met)
+```
+
+
+
+```{r}
+surv_res = survival::coxph(survival::Surv(time,status) ~ metastatic+CTA_chrX, data=ssgsea_survival)
+```
+
+```{r}
+met_choices = unique(ssgsea_survival$metastatic)
+res = lapply(met_choices, function(met) {
+  df = ssgsea_survival %>% dplyr::filter(metastatic==met)
+  survival::coxph(survival::Surv(time,status) ~ CTA_chrX, data=df)
+})
+names(res) = met_choices
+knitr::kable(
+  dplyr::bind_rows(lapply(res,broom::tidy),.id='met_status'),
+  caption = "Cox proportional hazards models to determine the effect of CTA genes on chromosome X (from ssGSEA analysis), applied separately to metastatic and non-metastatic patients. Note that the p-values are not significant when patients are treated separately."
+)
+```
+
+
+

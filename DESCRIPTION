@@ -23,8 +23,10 @@ Imports:
     stringr,
     survival,
     shiny
-Suggests: knitr,
-    ggplot2
+Suggests: 
+    knitr,
+    ggplot2,
+    rmarkdown
 Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
