@@ -26,8 +26,8 @@ knitr::opts_chunk$set(
 ## Learning goals and objectives
 
 - Know that Kaplan-Meier is a *univariate* statistical approach.
-- Know that Kaplan-Meier and associated log-rank test are applicable only to categorical variables.
-- Know that Cox regression can be applied to *univariate* or *multivariate* data with either categorical or continuous predictors.
+- Know that Kaplan-Meier is applicable only to categorical variables.
+- Know that Cox regression can be applied to *univariate* or *multivariate* data with both categorical or continuous predictors.
 - Understand how to use `anova()` to determine the statistical significance of predictors.
 - Be able to apply `anova()` to determine if an additional predictor is helpful to predicting survival.
 - Be able to identify and interpret the Hazard Ratios from a Cox regression model.
